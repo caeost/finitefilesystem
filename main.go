@@ -31,8 +31,6 @@ func Register(name string, key string, generator []string) {
 	if _, ok := types[name][key]; !ok { // key not already added (not dealing with multiple adds on same key, first register wins)
 		types[name][key] = generator
 	}
-
-	// do file system persistance later
 }
 
 func Generate(name string) error {
@@ -170,7 +168,7 @@ func getFile(hash string) (Instance, error) {
 }
 
 func fileExists(hash string) bool {
-	b, err := exists(getPath(hash)) // stub: actually looks up if file exists
+	b, err := exists(getPath(hash))
 
 	if err != nil {
 		return false
