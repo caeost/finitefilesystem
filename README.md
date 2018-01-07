@@ -38,3 +38,4 @@ Just using `Store` and `Get` will work but is just a partial implementation of a
 * Implement output so it would be pluggable - allow overriding output with a function that takes the hash and data and sticks it wherever
 * Cleanup some of the code
 * Rather then just passing an array of values you should be able to pass an iterator, type (like Boolean) and maybe other things?
+* Allow creation of multiple instances that could store in different places / have different registered functions
