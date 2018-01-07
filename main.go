@@ -73,7 +73,7 @@ func generateLoop(name string, keys []string, object Object, instance Instance) 
 				return err
 			}
 		} else {
-			_, err := Store(name, inst)
+			_, err := Store(inst)
 
 			if err != nil {
 				return err
@@ -84,14 +84,12 @@ func generateLoop(name string, keys []string, object Object, instance Instance) 
 	return nil
 }
 
-func Store(name string, instance Instance) (hash string, err error) {
-	log.Print("Store a(n) " + name)
-	if _, ok := types[name]; !ok {
-		err = errors.New("No matching type registered")
-		return
-	}
-
+// Note: hashes will always point to the right thing but the object may be serialized differently in different runs
+// this is apparently how gob works but it has no real ramifications other then potential confusion at seeing the data files change
+func Store(instance Instance) (hash string, err error) {
 	hash, err = hashInstance(instance)
+
+	log.Print("hash: " + hash)
 
 	if err != nil {
 		return

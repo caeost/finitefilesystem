@@ -14,7 +14,7 @@ func TestCaseA(t *testing.T) {
 	var hash string
 	for i := 0; i < 1000; i++ {
 		var err error
-		hash, err = Store("a", generateInst())
+		hash, err = Store(generateInst())
 
 		if err != nil {
 			t.Error("could not Store", err)
