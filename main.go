@@ -1,4 +1,4 @@
-package main
+package finitefilesystem
 
 import (
 	"encoding/gob"
@@ -14,9 +14,6 @@ import (
 
 	"github.com/mitchellh/hashstructure"
 )
-
-func main() {
-}
 
 type Object map[string][]string
 type Instance map[string]string

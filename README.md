@@ -36,6 +36,5 @@ Just using `Store` and `Get` will work but is just a partial implementation of a
 ## Todos
 * Don't just accept map[string]string, I haven't done go in a while and didn't want to mess around with how the types work
 * Implement output so it would be pluggable - allow overriding output with a function that takes the hash and data and sticks it wherever
-* Change from a "main" package into a library
 * Cleanup some of the code
 * Rather then just passing an array of values you should be able to pass an iterator, type (like Boolean) and maybe other things?
