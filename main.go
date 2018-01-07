@@ -116,6 +116,10 @@ func Get(hash string) (string, error) {
 	return string(b[:]), nil
 }
 
+func Remove(hash string) error {
+	return os.Remove(getPath(hash))
+}
+
 // Internal functions
 func hashInstance(instance Instance) (string, error) {
 	i, err := hashstructure.Hash(instance, nil)
