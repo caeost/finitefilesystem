@@ -55,19 +55,21 @@ func generateLoop(name string, keys []string, object Object, instance Instance) 
 	for _, val := range object[keys[0]] {
 		inst := Instance{}
 
+		// Copy the object over to avoid corruption
 		for key, val := range instance {
 			inst[key] = val
 		}
 
+		// Set this key=val
 		inst[keys[0]] = val
 
-		if len(keys) > 1 {
+		if len(keys) > 1 { // cannot output yet, we must on!
 			err := generateLoop(name, keys[1:], object, inst)
 
 			if err != nil {
 				return err
 			}
-		} else {
+		} else { // done with the permutations for this
 			_, err := Store(inst)
 
 			if err != nil {
